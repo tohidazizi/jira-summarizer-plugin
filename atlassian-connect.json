@@ -1,26 +1,34 @@
 {
-     "name": "Hello World",
-     "description": "Atlassian Connect add-on",
-     "key": "com.bartonassociates.myaddon",
-     "baseUrl": "https://tohidazizi.github.io/jira-summarizer-plugin",
-     "vendor": {
-         "name": "Barton Associates, Inc.",
-         "url": "https://www.bartonassociates.com"
-     },
-     "authentication": {
-         "type": "none"
-     },
-     "apiVersion": 1,
-     "modules": {
-         "generalPages": [
-             {
-                 "url": "/helloworld.html",
-                 "key": "hello-world",
-                 "location": "system.top.navigation.bar",
-                 "name": {
-                     "value": "Greeting"
-                 }
-             }
-         ]
-     }
- }
+    "name": "JIRA Summarizer",
+    "description": "A Connect add-on that summarizes JIRA information",
+    "key": "com.bartonassociates.jira.plugin.summarizer",
+    "baseUrl": "https://tohidazizi.github.io/jira-summarizer-plugin",
+    "vendor": {
+        "name": "Barton Associates, Inc.",
+        "url": "https://www.bartonassociates.com/"
+    },
+    "authentication": {
+        "type": "jwt"
+    },
+    "lifecycle": {
+        // atlassian-connect-express expects this route to be configured to manage the installation handshake
+        "installed": "/installed"
+    },
+    "scopes": [
+        "READ"
+    ],
+    "apiVersion": 1,
+    "modules": {
+        "generalPages": [{
+            "key": "summary",
+            "location": "system.top.navigation.bar",
+            "name": {
+                "value": "Summary"
+            },
+            "url": "/summary",
+            "conditions": [{
+                "condition": "user_is_logged_in"
+            }]
+        }]
+    }
+}
