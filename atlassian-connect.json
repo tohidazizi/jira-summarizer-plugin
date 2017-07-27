@@ -2,7 +2,7 @@
      "name": "Hello World",
      "description": "Atlassian Connect add-on",
      "key": "com.bartonassociates.myaddon",
-     "baseUrl": "http://localhost/atlas-plugin",
+     "baseUrl": "https://tohidazizi.github.io/jira-summarizer-plugin",
      "vendor": {
          "name": "Barton Associates, Inc.",
          "url": "https://www.bartonassociates.com"
